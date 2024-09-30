@@ -1,6 +1,7 @@
 # Desafio-Instaq - readme temporário
 <br><br>
-## Este projeto  trata-se de um CRUD onde será criado uma API
+## Descrição
+Este projeto  trata-se do  da criação de um CRUD onde será criado uma API, para o desafio do processo seletivo.
 <br>
 
  # ambiente de execução **Depois
