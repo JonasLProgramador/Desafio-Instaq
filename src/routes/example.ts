@@ -1,0 +1,1 @@
+let test: string = "is a simple test"
