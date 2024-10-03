@@ -13,7 +13,7 @@ export const typeDefs = `#graphql
 
   type Query{
     Users:[Users]!
-    user:User
+    User:User
   }
  
 `;

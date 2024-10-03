@@ -5,8 +5,9 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-   "watch": "tsc",
-   "start": "node dist/server.js"
+   "ts": "tsc -w" ,
+   "start": "nodemon dist/server.js",
+   "dev": "concurrently  \"npm run start\" \"npm run ts\"  " 
   },
   "keywords": [],
   "author": "",

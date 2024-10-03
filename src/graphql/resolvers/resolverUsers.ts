@@ -29,7 +29,7 @@ export const userResolver = {
      return users;
     },
     User:():{name:string, id:number, email:string } =>{
-      return user
+      return user;
     }
   },
 };
