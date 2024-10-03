@@ -1,0 +1,8 @@
+#remove the modules are not important to github
+node_modules/
+#remove the past dist with generated compilated code js
+dist/
+#remove the addicitonal archive are not necessary
+package-lock.json
+#remove variable enviroments 
+.env

@@ -1,0 +1,25 @@
+{
+  "name": "desafio-instaq",
+  "version": "1.0.0",
+  "description": "## Primeira versão do readme do repo.",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "ts": "tsc -w",
+    "start": "nodemon dist/server.js",
+    "dev": "concurrently  \"npm run start\" \"npm run ts\"  "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "22.7.4",
+    "concurrently": "^9.0.1",
+    "graphql": "16.9.0",
+    "nodemon": "3.1.7",
+    "typescript": "5.6.2"
+  },
+  "dependencies": {
+    "@apollo/server": "4.11.0"
+  }
+}

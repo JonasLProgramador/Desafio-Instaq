@@ -1,14 +1,5 @@
-# Desafio-Instaq - readme temporário
-<br><br>
-## Descrição
-Este projeto  trata-se do  da criação de um CRUD onde será criado uma API, para o desafio do processo seletivo do instituto taqtile.
-<br>
+# Desafio-Instaq
 
- # ambiente de execução **Depois
+## Primeira versão do readme do repo.
 
-<br>
-<br>
-
-# passos para rodar o projeto **Depois
- 
 
