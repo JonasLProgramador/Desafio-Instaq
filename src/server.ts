@@ -1,18 +1,20 @@
-import  express  from "express";
-import { helloSchema } from "./graphql/schemas/helloSchema";
-import { graphqlHTTP } from "express-graphql";
+
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { typeDefs } from './graphql/schemas/helloSchema.js';
+import { helloResolver } from './graphql/resolvers/resolverHello.js';
 
 
+const server = new ApolloServer({
+  typeDefs,
+  resolvers: helloResolver,
+});
 
-const app = express()
-app.use(
-    "/graphql",
-    graphqlHTTP({
-      schema:helloSchema,
-      graphiql:true,
-    })
-)
+const startServer = async ( ) =>{
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 4000 },
+});
+console.log(`🚀  Server ready at: ${url}`)
+}
 
-app.listen(7777,() : void => {
-    console.log("Server is running at port 7777!")
-})
+startServer();

@@ -1,15 +1,9 @@
-import { GraphQLSchema, GraphQLObjectType,  } from "graphql";
-import { hello } from "../resolvers/hello";
+export const typeDefs = `#graphql
+  type Hello{
+    hello: String
+  }
 
-
-
- const queryType =new GraphQLObjectType({
-    name:"Query",
-    fields:{
-        hello,
-    }
- });
-
- export const helloSchema = new GraphQLSchema({
-    query:queryType,
- });
+  type Query{
+    hello: String
+  }
+`;

@@ -3,21 +3,22 @@
   "version": "1.0.0",
   "description": "## Primeira versão do readme do repo.",
   "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "start": "ts-node-dev src/server.ts"
+   "watch": "tsc",
+   "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@types/node": "22.7.4",
+    "graphql": "16.9.0",
+    "nodemon": "3.1.7",
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.6.2"
+  },
   "dependencies": {
-    "@types/express": "^5.0.0",
-    "@types/graphql": "^14.2.3",
-    "@types/node": "^22.7.4",
-    "apollo-server-express": "^3.13.0",
-    "express": "^4.21.0",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.9.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.6.2"
+    "@apollo/server": "4.11.0"
   }
 }
