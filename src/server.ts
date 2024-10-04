@@ -1,20 +1,18 @@
-
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { typeDefs } from './graphql/schemas/helloSchema.js';
-import { helloResolver } from './graphql/resolvers/resolverHello.js';
-
+import { typeDefs } from './graphql/schemas/userSchema.js';
+import { userResolver } from './graphql/resolvers/resolverUsers.js';
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers: helloResolver,
+  resolvers: userResolver,
 });
 
-const startServer = async ( ) =>{
-const { url } = await startStandaloneServer(server, {
-  listen: { port: 4000 },
-});
-console.log(`🚀  Server ready at: ${url}`)
-}
+const startServer = async () => {
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
+  });
+  console.log(`🚀  Server ready at: ${url}`);
+};
 
 startServer();
