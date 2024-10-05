@@ -6,11 +6,10 @@ export const typeDefs = `#graphql
   }
 
   type User{
-    name:String,
-    id:ID,
+    name:String
+    id:ID
     email:String
   }
-
   type Query{
     Users:[Users]!
     User:User
