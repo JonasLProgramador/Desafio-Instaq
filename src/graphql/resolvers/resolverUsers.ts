@@ -1,27 +1,35 @@
-const users = [
-  {
-    name: 'Jonas',
-    id: 23,
-    email: 'JaycePain',
-  },
-  {
-    name: 'Cleber',
-    id: 24,
-    email: 'Cleber',
-  },
-];
-const user = {
-  name: 'Jonas',
-  id: 23,
-  email: 'JaycePain',
-};
+import { PrismaClient } from '@prisma/client';
+import { UserController } from '../../controller/user.Controller.js';
+import { UserService } from '../../services/user.Service.js';
+
+const prisma = new PrismaClient();
+const userService = new UserService(prisma);
+const userController = new UserController(userService);
+
 export const userResolver = {
   Query: {
-    Users: (): Array<{ name: string; id: number; email: string }> => {
-      return users;
+    Users: (): string => {
+      return 'nada';
     },
-    User: (): { name: string; id: number; email: string } => {
-      return user;
+  },
+
+  Mutation: {
+    criarUsuario: async (
+      _: unknown,
+      {
+        data,
+      }: {
+        data: {
+          name: string,
+          email: string,
+          description: string | "",
+        };
+      },
+    ): Promise<typeof data> => {
+      const { name, email, description } = data;
+      const newUser = await userController.createUser(name, email, description );
+      console.log(newUser);
+      return newUser;
     },
   },
 };
