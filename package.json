@@ -4,6 +4,7 @@
   "description": "## Primeira versão do readme do repo.",
   "main": "dist/server.js",
   "type": "module",
+  "save-exact": true,
   "scripts": {
     "lint": "eslint",
     "format": "prettier --write 'src/**/*.{ts,js,json}'",
@@ -20,18 +21,18 @@
     "@typescript-eslint/eslint-plugin": "8.8.0",
     "@typescript-eslint/parser": "8.8.0",
     "concurrently": "9.0.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "16.4.5",
     "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "graphql": "16.9.0",
     "nodemon": "3.1.7",
     "prettier": "3.3.3",
-    "prisma": "^5.20.0",
+    "prisma": "5.20.0",
     "typescript": "5.5"
   },
   "dependencies": {
     "@apollo/server": "4.11.0",
-    "@prisma/client": "^5.20.0"
+    "@prisma/client": "5.20.0"
   }
 }

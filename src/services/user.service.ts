@@ -1,4 +1,5 @@
 import type { PrismaClient } from '@prisma/client';
+import type { CreateUserInput} from '../types/types.js'; 
 
 export class UserService {
   private prisma: PrismaClient;
@@ -7,21 +8,14 @@ export class UserService {
     this.prisma = prisma;
   }
 
-  async createUser(
-    name: string,
-    email: string,
-    description: string | null,
-  ) {
-    if (!name || !email) { 
-      throw new Error('Name and email are obligatory!');
-    }
-
+  async createUser(params: CreateUserInput) { 
+    const { name, email, description } = params; 
     const newUser = await this.prisma.user.create({
       data: {
         name,
         email,
-        description: description || ""
-      }
+        description: description || '',
+      },
     });
     return newUser;
   }
