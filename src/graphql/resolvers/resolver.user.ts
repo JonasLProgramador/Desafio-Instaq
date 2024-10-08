@@ -15,7 +15,7 @@ export const userResolver = {
   },
 
   Mutation: {
-    criarUsuario: async (
+    createUser: async (
       _: unknown,
       {
         data,
@@ -24,7 +24,6 @@ export const userResolver = {
       },
     ): Promise<CreateUserInput> => {
       const newUser = await userController.createUser(data);
-      console.log(newUser);
       return newUser;
     },
   },

@@ -16,7 +16,7 @@ export const typeDefs = `#graphql
       description:String
     }
    type Mutation{
-    criarUsuario(data:UserInput):User
+    createUser(data:UserInput):User
    }
 
 
