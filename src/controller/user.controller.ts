@@ -1,6 +1,5 @@
-import { GraphQLError } from 'graphql';
 import type { UserService } from '../services/user.service.js';
-import type { CreateUserInput } from '../types/types.js';
+import  type { CreateUserInput } from '../types/types.js';
 
 export class UserController {
   private userService: UserService;
@@ -17,4 +16,4 @@ export class UserController {
       throw  error
     }
   }
-}
+};
