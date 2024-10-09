@@ -26,7 +26,7 @@ export class UserService {
         name,
         email,
         password,
-        birthDate:new Date(birthDate)
+        birthDate:birthDate ? new Date(birthDate) : null
       },
     });
     return newUser;
