@@ -1,5 +1,6 @@
+import { GraphQLError } from 'graphql';
 import type { UserService } from '../services/user.service.js';
-import  type { CreateUserInput } from '../types/types.js';
+import type { CreateUserInput } from '../types/types.js';
 
 export class UserController {
   private userService: UserService;
@@ -8,12 +9,12 @@ export class UserController {
     this.userService = userService;
   }
 
-  async createUser(params: CreateUserInput) {
+  createUser(params: CreateUserInput) {
     try {
-      return await this.userService.createUser(params);
+      return  this.userService.createUser(params);
     } catch (error) {
       console.error('Erro ao criar usuário:', error);
-      throw new Error('Erro ao criar usuário');
+      throw new Error("Não foi possivel criar o usuário");
     }
   }
 }
