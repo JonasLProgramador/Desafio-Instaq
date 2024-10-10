@@ -8,12 +8,12 @@ export class UserController {
     this.userService = userService;
   }
 
-  async createUser(params: CreateUserInput) {
+    createUser(params: CreateUserInput) {
     try {
-      return await this.userService.createUser(params);
+      return this.userService.createUser(params);
     } catch (error) {
       console.error('Erro ao criar usuário:', error);
-      throw new Error('Erro ao criar usuário');
+      throw  error
     }
   }
 }
