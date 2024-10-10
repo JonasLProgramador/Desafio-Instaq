@@ -9,7 +9,7 @@ export class UserService {
   }
 
   async createUser(params: CreateUserInput) {
-    const { name, email, password, birthDate } = params;
+    const { name, email, password, birthDate} = params;
 
     const existingUser = await this.prisma.user.findUnique({
       where: {
