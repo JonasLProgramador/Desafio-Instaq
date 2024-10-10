@@ -17,10 +17,10 @@ export const userResolver = {
   Mutation: {
     createUser: async (
       _: unknown,
-      { data }: { data: CreateUserInput },
+      { data }: { data: CreateUserInput }
     ): Promise<User> => {
-        const newUser = await userController.createUser(data);
-        return newUser;
-      }
+      const newUser = await userController.createUser(data);
+      return newUser;
     },
-  };
+  },
+};
