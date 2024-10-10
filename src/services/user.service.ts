@@ -1,5 +1,5 @@
 import type { PrismaClient } from '@prisma/client';
-import type { CreateUserInput } from '../types/types.js';
+import type { CreateUserInput} from '../types/types.js'; 
 
 export class UserService {
   private prisma: PrismaClient;
@@ -9,7 +9,7 @@ export class UserService {
   }
 
   async createUser(params: CreateUserInput) {
-    const { name, email, description } = params;
+    const { name, email, password, birthDate } = params;
 
     const existingUser = await this.prisma.user.findUnique({
       where: {
@@ -25,7 +25,8 @@ export class UserService {
       data: {
         name,
         email,
-        description: description || null
+        password,
+        birthDate:new Date(birthDate)
       },
     });
     return newUser;
