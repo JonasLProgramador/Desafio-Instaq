@@ -29,7 +29,8 @@
     "nodemon": "3.1.7",
     "prettier": "3.3.3",
     "prisma": "5.20.0",
-    "typescript": "5.5"
+    "typescript": "5.5",
+    "zod": "3.23.8"
   },
   "dependencies": {
     "@apollo/server": "4.11.0",

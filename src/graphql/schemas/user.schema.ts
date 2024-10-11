@@ -1,29 +1,18 @@
-  export const typeDefs = `#graphql
-    type User{
-      id:ID!
-      name:String!
-      email:String!
-      birthDate: String
+import { z } from 'zod';
 
-    }
+ const createUserInputSchema = z.object({
+  name: z.string().min(10, 'Nome tem que haver no mínimo 10 letras'),
+  email: z.string().email('Insira um email válido!`'),
+  password: z
+    .string()
+    .min(6, 'A senha deve conter no mínimo 6 letras')
+    .regex(
+      /^(?=.*[a-zA-Z])(?=.*\d).+$/,
+      'A senha deve conter no mínimo 1 letra e um número',
+    ),
+  birthDate:z.string().optional()
+});
 
-    type Query{
-      Users:[User]!
-      user(id: Int):User
-    }
-      input UserInput{
-        name:String!
-        email:String!
-        password:String!
-        birthDate:String
-      }
-    type Mutation{
-      createUser(data:UserInput):User
-    }
+ type CreateUserInputType = z.infer<typeof createUserInputSchema>;
 
-
-
-  `;
-
-
-
+ export {createUserInputSchema, type CreateUserInputType}
