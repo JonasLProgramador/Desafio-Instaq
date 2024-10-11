@@ -1,6 +1,8 @@
-import { GraphQLError } from 'graphql';
 import type { UserService } from '../services/user.service.js';
-import type { CreateUserInput } from '../types/types.js';
+import {
+  type CreateUserInputType,
+  createUserInputSchema,
+} from '../graphql/schemas/index.js';
 
 export class UserController {
   private userService: UserService;
@@ -8,13 +10,13 @@ export class UserController {
   constructor(userService: UserService) {
     this.userService = userService;
   }
-
-    createUser(params: CreateUserInput) {
+  createUser(params: CreateUserInputType) {
     try {
-      return this.userService.createUser(params);
+      const validateData = createUserInputSchema.parse(params);
+      return this.userService.createUser(validateData);
     } catch (error) {
       console.error('Erro ao criar usuário:', error);
-      throw  error
+      throw error;
     }
   }
-};
+}

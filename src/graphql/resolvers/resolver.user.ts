@@ -1,7 +1,7 @@
 import { PrismaClient, type User } from '@prisma/client';
 import { UserController } from '../../controller/user.controller.js';
 import { UserService } from '../../services/user.service.js';
-import type { CreateUserInput } from '../../types/types.js';
+import type { CreateUserInputType } from '../schemas/user.schema.js';
 
 const prisma = new PrismaClient();
 const userService = new UserService(prisma);
@@ -17,7 +17,7 @@ export const userResolver = {
   Mutation: {
     createUser: async (
       _: unknown,
-      { data }: { data: CreateUserInput },
+      { data }: { data: CreateUserInputType },
     ): Promise<User> => {
         const newUser = await userController.createUser(data);
         return newUser;
