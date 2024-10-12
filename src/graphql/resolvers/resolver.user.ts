@@ -2,7 +2,7 @@ import { PrismaClient, type User } from '@prisma/client';
 import { UserController } from '../../controller/user.controller.js';
 import { UserService } from '../../services/user.service.js';
 import type { CreateUserInputType } from '../schemas/user.schema.js';
-import { UserPasswordService } from '../../services/userPassword.service.js';
+import { UserPasswordService } from '../../services/userAuth.service.js';
 
 const prisma = new PrismaClient();
 const userPasswordService = new UserPasswordService()

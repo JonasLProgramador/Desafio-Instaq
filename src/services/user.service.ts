@@ -1,6 +1,6 @@
 import type { PrismaClient } from '@prisma/client';
 import type { CreateUserInputType } from '../graphql/schemas/index.js';
-import type { UserPasswordService } from './userPassword.service.js';
+import type { UserPasswordService } from './userAuth.service.js';
 
 export class UserService {
   private readonly prisma: PrismaClient;
