@@ -4,18 +4,17 @@ export const userTypeDefs = `#graphql
       name:String!
       email:String!
       birthDate: String
-
-    }
-
-    type Query{
-      Users:[User]!
-      user(id: Int):User
-    }
+    }   
       input UserInput{
         name:String!
         email:String!
         password:String!  
         birthDate:String
+      }
+      type Query{
+        Users:[User]!
+        user(id: Int):User
+      
       }
     type Mutation{
       createUser(data:UserInput):User
