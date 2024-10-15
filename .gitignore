@@ -6,6 +6,9 @@ dist/
 package-lock.json
 #remove variable enviroments 
 .env
+#remove variable enviroments for tests
+.test.env
+
 
 #remove the unecessary local data
 db/dumps/

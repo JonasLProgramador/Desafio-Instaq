@@ -1,6 +1,10 @@
 import { ApolloServer } from '@apollo/server';
 import { typeDefs } from '../src/graphql/index.js';
 import { resolvers } from '../src/graphql/index.js';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
 import { startStandaloneServer } from '@apollo/server/standalone';
 const server = new ApolloServer({
   typeDefs,
@@ -8,6 +12,7 @@ const server = new ApolloServer({
 });
 
 before(async () => {
+  await prisma.$connect();
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
   });
@@ -15,6 +20,7 @@ before(async () => {
 });
 
 after(async () => {
+  await prisma.$disconnect();
   server.stop();
   console.log('Server stops after the tests');
 });
