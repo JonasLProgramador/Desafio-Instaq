@@ -10,9 +10,9 @@
     "forceConsistentCasingInFileNames": true,
     "noEmitOnError":  true,
     "outDir": "./dist",
-    "rootDir": "."
+    "rootDir": "./src"
   },
-  "include": ["src/**/*.ts","test/**/*.ts"],
+  "include": ["src/**/*.ts", "src/graphql/typedefs/user"],
   "exclude": ["node_modules"]
   
 }
