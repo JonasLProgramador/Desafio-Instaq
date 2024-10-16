@@ -13,8 +13,7 @@ export const userResolver = {
       _: unknown,
       { data }: { data: CreateUserInputType },
     ): Promise<User> => {
-      const newUser = await userController.createUser(data);
-      return newUser;
+      return  userController.createUser(data);
     },
   },
 };
