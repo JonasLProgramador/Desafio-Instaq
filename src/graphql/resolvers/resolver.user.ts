@@ -10,12 +10,19 @@ const userService = new UserService(prisma,userPasswordService);
 const userController = new UserController(userService);
 
 export const userResolver = {
+  Query: {
+    Users: (): string => {
+      return 'nada';
+    },
+  },
+
   Mutation: {
     createUser: async (
       _: unknown,
       { data }: { data: CreateUserInputType },
     ): Promise<User> => {
-      return  userController.createUser(data);
+        const newUser = await userController.createUser(data);
+        return newUser;
+      }
     },
-  },
-};
+  };

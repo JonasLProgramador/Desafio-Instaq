@@ -8,11 +8,10 @@
   "scripts": {
     "lint": "eslint",
     "format": "prettier --write 'src/**/*.{ts,js,json}'",
-    "ts": "tsc ",
-    "start": "node --watch dist/src/server.js",
-    "dev": "concurrently \"npm run ts\" \"npm run lint\" \"npm run start\" ",
-    "lint:fix": "eslint --fix && npm run format",
-    "test": "mocha ./dist/test/"
+    "ts": "tsc -w",
+    "start": "nodemon dist/server.js",
+    "dev": "concurrently  \"npm run start\" \"npm run ts\" \"npm run lint\" ",
+    "lint:fix": "eslint --fix && npm run format"
   },
   "keywords": [],
   "author": "",
@@ -20,24 +19,19 @@
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
     "@types/node": "22.7.4",
-    "@types/sinon": "17.0.3",
     "@typescript-eslint/eslint-plugin": "8.8.0",
     "@typescript-eslint/parser": "8.8.0",
-    "axios": "1.7.7",
     "bcrypt": "5.1.1",
-    "chai": "5.1.1",
     "concurrently": "9.0.1",
-    "cross-env": "7.0.3",
     "dotenv": "16.4.5",
     "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "graphql": "16.9.0",
-    "mocha": "10.7.3",
+    "nodemon": "3.1.7",
     "prettier": "3.3.3",
     "prisma": "5.20.0",
-    "ts-node": "10.9.2",
-    "typescript": "5.5.4",
+    "typescript": "5.5",
     "zod": "3.23.8"
   },
   "dependencies": {
