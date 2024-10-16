@@ -2,9 +2,11 @@ import { PrismaClient, type User } from '@prisma/client';
 import { UserController } from '../../controller/user.controller.js';
 import { UserService } from '../../services/user.service.js';
 import type { CreateUserInputType } from '../schemas/user.schema.js';
+import { UserPasswordService } from '../../services/userAuth.service.js';
 
 const prisma = new PrismaClient();
-const userService = new UserService(prisma);
+const userPasswordService = new UserPasswordService()
+const userService = new UserService(prisma,userPasswordService);
 const userController = new UserController(userService);
 
 export const userResolver = {
@@ -13,8 +15,7 @@ export const userResolver = {
       _: unknown,
       { data }: { data: CreateUserInputType },
     ): Promise<User> => {
-      const newUser = await userController.createUser(data);
-      return newUser;
+      return  userController.createUser(data);
     },
   },
 };
