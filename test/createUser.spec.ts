@@ -9,7 +9,7 @@ describe('The test has to create a user in the test database', () => {
     await prisma.user.deleteMany();
   });
 
-  it('should return a user with the correct properties', async () => {
+  it('should return a user with the correct properties and values', async () => {
     const operation = {
       query: `
         mutation CreateUser($data: UserInput!) {
@@ -44,9 +44,16 @@ describe('The test has to create a user in the test database', () => {
     const createdUser = responseOperation.data.data.createUser;
 
     expect(createdUser).to.exist;
+
     expect(createdUser).to.have.property('id');
     expect(createdUser).to.have.property('name', 'carinha234');
     expect(createdUser).to.have.property('email', 'jaycepainz@gmail.com');
-    expect(createdUser).to.have.property('birthDate');
+
+    const expectedDate = new Date('2003-10-03').toISOString().split('T')[0];
+    const receivedDate = new Date(createdUser.birthDate).toISOString().split('T')[0];
+
+    expect(receivedDate).to.equal(expectedDate);
+
+    expect(createdUser.id).to.be.a('number');
   });
 });
