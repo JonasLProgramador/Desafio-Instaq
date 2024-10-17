@@ -20,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
+    "@types/mocha": "10.0.9",
     "@types/node": "22.7.4",
     "@types/sinon": "17.0.3",
     "@typescript-eslint/eslint-plugin": "8.8.0",
@@ -45,6 +46,7 @@
   },
   "dependencies": {
     "@apollo/server": "4.11.0",
-    "@prisma/client": "5.20.0"
+    "@prisma/client": "5.20.0",
+    "@types/chai": "5.0.0"
   }
 }
